@@ -32,7 +32,7 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/exercise">Exercise</Link>
+            <Link to="/test/exercise">Exercise</Link>
           </li>
           <li>
             <Link to="/jaal">JAAL Animation File</Link>
@@ -42,7 +42,7 @@ function App() {
           </li>
         </nav>
         <Switch>
-          <Route path="/exercise">
+          <Route path="/test/exercise">
             <Exercise saveSubmission={saveSubmission}/>
           </Route>
           <Route path="/jaal">
