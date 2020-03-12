@@ -21,7 +21,7 @@ function initialize() {
   turnAnimationOff();
   let htmldata = "";
   for (let i = 0; i < arraySize; i++) {
-      randomVal = Math.floor(Math.random()*100) + 10;
+      let randomVal = Math.floor(Math.random()*100) + 10;
       htmldata += "<li>" + randomVal + "</li>";
       initialArray[i] = randomVal;
   }
