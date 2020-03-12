@@ -8,17 +8,21 @@ class Exercise extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mounting')
     if(window.$ !== undefined){
-      recorder.initialize(window.$);
-      insertionSort(window.JSAV, window.$);
+      let JSAV = window.JSAV
+      let $ = window.$;
+      recorder.initialize();
+      insertionSort(JSAV, $);
+      new JSAV.utils.Settings($('#settings'));
+      let resetButton = document.getElementsByName('reset')[0];
+      resetButton.parentNode.removeChild(resetButton)
     } else {
       window.location.pathname = '/';
     }
   }
 
   componentWillUnmount() {
-    this.props.saveSubmission();
+    recorder.reset();
   }
 
   render() {
@@ -30,6 +34,7 @@ class Exercise extends React.Component {
         <p className="instructions">
         Use Insertion Sort to sort the table given below in ascending order. Click on an item to select it and click again on another one to swap these bars.
         </p>
+        <button id="settings">Animation Speed</button>
         <p align="center" className="jsavexercisecontrols"></p>
         <p className="jsavscore"></p>
         <ol id="exerArray"></ol>

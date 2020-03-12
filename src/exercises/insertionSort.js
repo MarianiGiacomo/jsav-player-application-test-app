@@ -1,5 +1,4 @@
 export default function loadExercise(JSAV, $){
-  console.log('loading exercise')
   let oldfx;
   let arraySize = 10;
   let initialArray = [];

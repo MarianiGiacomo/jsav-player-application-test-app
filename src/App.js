@@ -13,13 +13,13 @@ import Jaal from './components/Jaal';
 import Animation from './components/Animation';
 
 function App() {
-  const [ submission, setSubmission ] = useState({});
-
-  function saveSubmission() {
-    if(window.submission) {
-      setSubmission(window.submission)
-    }
-  }
+  // let submission = {}
+  //
+  // function saveSubmission() {
+  //   if(window.submission) {
+  //     setSubmission(window.submission)
+  //   }
+  // }
 
   return (
     <Router>
@@ -43,10 +43,10 @@ function App() {
         </nav>
         <Switch>
           <Route path="/test/exercise">
-            <Exercise saveSubmission={saveSubmission}/>
+            <Exercise />
           </Route>
           <Route path="/jaal">
-            <Jaal submission={submission}/>
+            <Jaal />
           </Route>
           <Route path="/animation">
             <Animation />

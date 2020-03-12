@@ -1,10 +1,10 @@
 import React from 'react';
 const Jaal = (props) => {
 
-  const { submission } = { ...props }
+  const  submission  = window.submission
 
   function noSubmission() {
-    return <h2>No JAAL file available</h2>
+    return <h2 className="no-data">No JAAL file available</h2>
   }
 
   function showSubmission() {
@@ -14,7 +14,7 @@ const Jaal = (props) => {
 
   return (
     <div>
-      { Object.keys(submission).length === 0? noSubmission() : showSubmission() }
+      { !submission ? noSubmission() : showSubmission() }
     </div>
   )
 
