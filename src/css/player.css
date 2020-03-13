@@ -11,7 +11,8 @@
   min-height: 150px;
   margin: 5px;
 }
-.import-export, .final-grade, .jsavoutput, .play, .animation-instructions, .model-solution {
+.import-export, .final-grade, .jsavoutput, .play, .animation-instructions,
+.model-solution, .auto-animation  {
   text-align: center;
   margin: 2px;
 }

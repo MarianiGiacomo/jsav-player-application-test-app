@@ -1,17 +1,15 @@
 import React from 'react';
-import recorder from "../jsav-exercise-recorder/exerciseRecorder.js"
+// import recorder from "../jsav-exercise-recorder/exerciseRecorder.js"
 import insertionSort from "../exercises/insertionSort.js"
+import "../jsav-exercise-recorder/build/exercise_recorder-bundle.js";
 
 class Exercise extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     if(window.$ !== undefined){
       let JSAV = window.JSAV
       let $ = window.$;
-      recorder.initialize();
+      window.initializeRecorder();
       insertionSort(JSAV, $);
       new JSAV.utils.Settings($('#settings'));
       let resetButton = document.getElementsByName('reset')[0];
@@ -22,7 +20,7 @@ class Exercise extends React.Component {
   }
 
   componentWillUnmount() {
-    recorder.reset();
+    window.detachRecorder();
   }
 
   render() {

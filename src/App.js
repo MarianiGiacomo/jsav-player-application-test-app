@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,13 +13,6 @@ import Jaal from './components/Jaal';
 import Animation from './components/Animation';
 
 function App() {
-  // let submission = {}
-  //
-  // function saveSubmission() {
-  //   if(window.submission) {
-  //     setSubmission(window.submission)
-  //   }
-  // }
 
   return (
     <Router>
@@ -41,20 +34,22 @@ function App() {
             <Link to="/animation">Animation</Link>
           </li>
         </nav>
-        <Switch>
-          <Route path="/test/exercise">
-            <Exercise />
-          </Route>
-          <Route path="/jaal">
-            <Jaal />
-          </Route>
-          <Route path="/animation">
-            <Animation />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <div className="app-content">
+          <Switch>
+            <Route path="/test/exercise">
+              <Exercise />
+            </Route>
+            <Route path="/jaal">
+              <Jaal />
+            </Route>
+            <Route path="/animation">
+              <Animation />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );

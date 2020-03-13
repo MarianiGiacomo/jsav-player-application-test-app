@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Home = () => (
   <div>
@@ -17,6 +18,7 @@ const Home = () => (
       on the <em>JAAL</em> file</h4>
       </li>
   </ol>
+    <h4>Start by submitting an <Link to="/test/exercise">exercise</Link></h4>
   </div>
 );
 
