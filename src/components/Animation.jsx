@@ -53,14 +53,14 @@ class Animation extends Component {
           </div>
 
           <div className="model-solution">
-            <h3>Here will be shown the model solution steps if they are present in the animation</h3>
+            <h3>If the model answer was opened during the exercise, the viewed steps will be shown here</h3>
             <div id="model-solution"></div>
           </div>
 
         </div>
       )
     }
-    
+
     return (
       <h2 className="no-data">No data available for the animation</h2>
     )
