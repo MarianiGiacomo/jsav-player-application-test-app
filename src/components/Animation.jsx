@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../css/player.css";
+import "../jsav-exercise-player/styles/player.css";
 // import playButton from "../jsav-exercise-player/img/play-button.png";
 import "../jsav-exercise-player/build/player-bundle.js"
 
@@ -25,7 +25,7 @@ class Animation extends Component {
           <div className="auto-animation">
             <button id="play-button">Play</button>
             <button id="pause-button">Pause</button>
-            <button id="stop-button">Stop</button>
+            <button id="reset-button">Reset</button>
           </div>
           <div className="player-content">
             <div className="import-export">

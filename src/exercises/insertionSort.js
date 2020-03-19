@@ -54,7 +54,7 @@ export default function loadExercise(JSAV, $){
 
   function turnAnimationOff() {
       //save the state of fx.off
-      let oldfx = $.fx.off || false;
+      oldfx = $.fx.off || false;
       //turn off the jQuery animations
       $.fx.off = true;
   }
@@ -69,6 +69,8 @@ export default function loadExercise(JSAV, $){
   // bind a function to handle all click events on the array
   jsavArray.click(function(index) {
       // the first click will select an index and save it
+      console.log('this in click handler',this)
+      console.log('swapindex value in click handler', swapIndex.value())
       if (swapIndex.value() === -1) {
           swapIndex.value(index);
           this.addClass(index, "selected");
@@ -77,6 +79,7 @@ export default function loadExercise(JSAV, $){
           swapIndex.value(-1);
       } else { // swap
           this.swap(index, swapIndex.value());
+          this.removeClass(swapIndex.value(), "selected");
           swapIndex.value(-1);
           this.removeClass(index, "selected");
           exercise.gradeableStep();

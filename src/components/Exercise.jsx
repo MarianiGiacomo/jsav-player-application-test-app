@@ -1,7 +1,8 @@
 import React from 'react';
-// import recorder from "../jsav-exercise-recorder/exerciseRecorder.js"
 import insertionSort from "../exercises/insertionSort.js"
 import "../jsav-exercise-recorder/build/exercise_recorder-bundle.js";
+import "../css/odsaStyle-min.css";
+
 
 class Exercise extends React.Component {
 

@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import './css/App.css';
 import './css/JSAV.css';
-import './css/proficiency.css'
 import Exercise from './components/Exercise';
 import Home from './components/Home';
 import Jaal from './components/Jaal';
