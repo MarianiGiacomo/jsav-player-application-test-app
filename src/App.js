@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import './css/App.css';
 import './css/JSAV.css';
-import Exercise from './components/Exercise';
+import Exercises from './components/Exercises';
+import InsertionSort from './components/exercises/InsertionSort';
 import Home from './components/Home';
 import Jaal from './components/Jaal';
 import Animation from './components/Animation';
@@ -25,7 +26,7 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/test/exercise">Exercise</Link>
+            <Link to="/exercises">Exercises</Link>
           </li>
           <li>
             <Link to="/jaal">JAAL Animation File</Link>
@@ -36,9 +37,12 @@ function App() {
         </nav>
         <div className="app-content">
           <Switch>
-            <Route path="/test/exercise">
-              <Exercise />
+            <Route path="/exercises">
+              <Exercises />
             </Route>
+            // <Route path="/exercise/insertionSort">
+            //   <InsertionSort />
+            // </Route>
             <Route path="/jaal">
               <Jaal />
             </Route>
