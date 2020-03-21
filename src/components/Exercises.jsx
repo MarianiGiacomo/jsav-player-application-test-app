@@ -14,13 +14,12 @@ window.addEventListener("message", receiveMessage, false);
 function receiveMessage(event) {
   if (event.origin !== testServer)
     return;
-  console.log(event)
   try {
+    console.log(event.data)
     axios.post(testServer, event.data)
     .then(response => {
       let data = response.data;
-      console.log(data)
-      document.getElementById('player').innerHTML = data;
+      document.getElementById('player-container').innerHTML = data;
     })
   } catch (err) {
     console.warn(err);
@@ -29,13 +28,8 @@ function receiveMessage(event) {
 
 const Exercises = ({}) => (
   <div>
-    <iframe
-      src={urlWithParams}
-      title="insertion sort"
-      width="900"
-      height="700"
-    ></iframe>
-    <div id="player">
+    <iframe title="insertion-sort" src={urlWithParams}></iframe>
+    <div id="player-container">
     </div>
   </div>
 );

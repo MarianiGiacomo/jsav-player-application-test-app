@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import "../jsav-exercise-player/styles/player.css";
+// import "../jsav-exercise-player/styles/player.css";
 // import playButton from "../jsav-exercise-player/img/play-button.png";
-import "../jsav-exercise-player/build/player-bundle.js"
+// import "../jsav-exercise-player/build/player-bundle.js"
 
 class Animation extends Component {
 

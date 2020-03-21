@@ -31,23 +31,14 @@ function App() {
           <li>
             <Link to="/jaal">JAAL Animation File</Link>
           </li>
-          <li>
-            <Link to="/animation">Animation</Link>
-          </li>
         </nav>
         <div className="app-content">
           <Switch>
             <Route path="/exercises">
               <Exercises />
             </Route>
-            // <Route path="/exercise/insertionSort">
-            //   <InsertionSort />
-            // </Route>
             <Route path="/jaal">
               <Jaal />
-            </Route>
-            <Route path="/animation">
-              <Animation />
             </Route>
             <Route path="/">
               <Home />
