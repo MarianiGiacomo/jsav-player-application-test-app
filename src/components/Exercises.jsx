@@ -5,18 +5,18 @@ import axios from "axios";
 const testServer = "http://localhost:8000"
 const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
 const exercisePath = "/exercises/"
-const insertionSort = `${testServer}${exercisePath}insertionSort.html`
+const insertionSort = `${exerciseServer}${exercisePath}insertionSort.html`
 
 let urlWithParams = constructUrl( insertionSort, getParams() )
 
 window.addEventListener("message", receiveMessage, false);
 
 function receiveMessage(event) {
-  if (event.origin !== testServer)
+  if (event.origin !== exerciseServer)
     return;
   try {
     console.log(event.data)
-    axios.post(testServer, event.data)
+    axios.post(exerciseServer, event.data)
     .then(response => {
       let data = response.data;
       document.getElementById('player-container').innerHTML = data;
