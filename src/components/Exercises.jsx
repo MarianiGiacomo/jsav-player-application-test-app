@@ -1,62 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Modal from "./Modal";
 
-const testServer = "http://localhost:8000"
-const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
-const exercisePath = "/exercises/"
-const insertionSort = `${exerciseServer}${exercisePath}insertionSort.html`
+const Exercises = ({}) => {
+  const mode = "test";
+  const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
+  const testServer = "http://localhost:8000"
+  const server = mode === "test"? testServer : exerciseServer;
+  const [ animationData, setAnimationData ] = useState("");
+  const [ exercises, setExercises ] = useState([
+    {
+      title: "Insertion Sort",
+      server: server,
+      path: "/exercises/insertionSort.html",
+      submission_url: "",
+      post_url: "window",
+      max_points: 20,
+      uid: "test user",
+      ordinal_number: 1
+    }
+  ]);
 
-let urlWithParams = constructUrl( insertionSort, getParams() )
+  window.addEventListener("message", receiveMessage, false);
 
-window.addEventListener("message", receiveMessage, false);
-
-function receiveMessage(event) {
-  if (event.origin !== exerciseServer)
-    return;
-  try {
-    console.log(event.data)
-    axios.post(exerciseServer, event.data)
-    .then(response => {
-      let data = response.data;
-      document.getElementById('player-container').innerHTML = data;
-    })
-  } catch (err) {
-    console.warn(err);
-  }
-}
-
-const Exercises = ({}) => (
-  <div>
-    <iframe title="insertion-sort" src={urlWithParams}></iframe>
-    <div id="player-container">
+  return (
+    <div>
+      <div className="exercise-content">
+      { exercises.map( exercise => {
+        return <iframe title={ exercise.title } src={constructUrl(exercise)}></iframe>
+      }) }
+      </div>
+      <button id="modalButton" onClick={ openModal }>Replay submission</button>
+      <Modal content={animationData}/>
     </div>
-  </div>
-);
+  )
 
-function getParams() {
-  let submission_url = "";
-  let post_url = "window";
-  let max_points = 20;
-  let uid = "test-user"
-  let ordinal_number = 1;
-  return {
-    submission_url,
-    post_url,
-    max_points,
-    uid,
-    ordinal_number
+  function openModal() {
+    document.getElementById('modalWindow').style.display = "block";
   }
-}
 
-function constructUrl(url, params) {
+  function receiveMessage(event) {
+    if (event.origin !== server)
+      return;
+    try {
+      console.log(event.data)
+      axios.post(server, event.data)
+      .then(response => {
+        let data = response.data;
+        document.getElementById('modalWindow').style.display = "block";
+        setAnimationData(data);
+        //document.getElementById('player-container').innerHTML = data;
+      })
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+};
+
+
+function constructUrl(exercise) {
   let {
+    server,
+    path,
     submission_url,
     post_url,
     max_points,
     uid,
     ordinal_number
-  } = { ...params };
+  } = { ...exercise };
+  let url = server + path;
   return  `${url}?submission_url=${submission_url}
     &post_url=${post_url}&max_points=${max_points}&uid=${uid}&ordinal_number=${ordinal_number}`;
 }

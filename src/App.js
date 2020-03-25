@@ -13,6 +13,7 @@ import Home from './components/Home';
 import Jaal from './components/Jaal';
 import Animation from './components/Animation';
 
+
 function App() {
 
   return (
