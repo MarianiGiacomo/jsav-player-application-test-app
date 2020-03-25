@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import axios from "axios";
 import Modal from "./Modal";
 
-const Exercises = ({}) => {
-  const mode = "test";
-  const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
-  const testServer = "http://localhost:8000"
-  const server = mode === "test"? testServer : exerciseServer;
-  const [ animationData, setAnimationData ] = useState("");
+const Exercises = (props) => {
+  const {
+    server,
+    animationData,
+    modal,
+    openModal,
+    closeModal } = { ...props };
   const [ exercises, setExercises ] = useState([
     {
       title: "Insertion Sort",
@@ -22,8 +21,6 @@ const Exercises = ({}) => {
     }
   ]);
 
-  window.addEventListener("message", receiveMessage, false);
-
   return (
     <div>
       <div className="exercise-content">
@@ -31,33 +28,15 @@ const Exercises = ({}) => {
         return <iframe title={ exercise.title } src={constructUrl(exercise)}></iframe>
       }) }
       </div>
-      <button id="modalButton" onClick={ openModal }>Replay submission</button>
-      <Modal content={animationData}/>
+      <button id="modalButton" onClick={() => openModal(animationData)}>Replay submission</button>
+      <Modal
+      visible={modal}
+      openModal={openModal}
+      closeModal={closeModal}/>
     </div>
   )
 
-  function openModal() {
-    document.getElementById('modalWindow').style.display = "block";
-  }
-
-  function receiveMessage(event) {
-    if (event.origin !== server)
-      return;
-    try {
-      console.log(event.data)
-      axios.post(server, event.data)
-      .then(response => {
-        let data = response.data;
-        document.getElementById('modalWindow').style.display = "block";
-        setAnimationData(data);
-        //document.getElementById('player-container').innerHTML = data;
-      })
-    } catch (err) {
-      console.warn(err);
-    }
-  }
 };
-
 
 function constructUrl(exercise) {
   let {

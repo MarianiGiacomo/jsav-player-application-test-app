@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import axios from "axios";
 import './css/App.css';
 import './css/JSAV.css';
 import Exercises from './components/Exercises';
@@ -15,6 +16,14 @@ import Animation from './components/Animation';
 
 
 function App() {
+  const [ animationData, setAnimationData ] = useState("No data");
+  const [ modal, setModal ] = useState(false);
+
+  window.addEventListener("message", receiveMessage, false);
+  const mode = "prod";
+  const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
+  const testServer = "http://localhost:8000"
+  const server = mode === "test"? testServer : exerciseServer;
 
   return (
     <Router>
@@ -29,17 +38,17 @@ function App() {
           <li>
             <Link to="/exercises">Exercises</Link>
           </li>
-          <li>
-            <Link to="/jaal">JAAL Animation File</Link>
-          </li>
         </nav>
         <div className="app-content">
           <Switch>
             <Route path="/exercises">
-              <Exercises />
-            </Route>
-            <Route path="/jaal">
-              <Jaal />
+              <Exercises
+              server={server}
+              animationData={animationData}
+              modal={modal}
+              openModal={openModal}
+              closeModal={closeModal}
+              />
             </Route>
             <Route path="/">
               <Home />
@@ -49,6 +58,31 @@ function App() {
       </div>
     </Router>
   );
+
+  function receiveMessage(event) {
+    if (event.origin !== server)
+      return;
+    try {
+      console.log(event.data)
+      axios.post(server, event.data)
+      .then(response => {
+        let data = response.data;
+        setAnimationData(data);
+        openModal(data);
+      })
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+  function openModal(content) {
+    setModal(true);
+    document.getElementById('player-container').innerHTML = content;
+  }
+
+  function closeModal() {
+    setModal(false);
+  }
 }
 
 export default App;
