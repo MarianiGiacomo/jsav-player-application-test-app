@@ -28,7 +28,6 @@ const Exercises = (props) => {
         return <iframe title={ exercise.title } src={constructUrl(exercise)}></iframe>
       }) }
       </div>
-      <button id="modalButton" onClick={() => openModal(animationData)}>Replay submission</button>
       <Modal
       visible={modal}
       openModal={openModal}
