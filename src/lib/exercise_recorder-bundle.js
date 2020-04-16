@@ -13,7 +13,7 @@ function handleArrayEvents(eventData) {
         index: eventData.index
       }
       try {
-        submission.addAnimationStep.dsClick(clickData);
+        submission.addAnimationStepSuccesfully.dsClick(clickData);
       } catch (error) {
         console.warn(`Could not set array click in animation: ${error}`);
       }
@@ -45,7 +45,7 @@ function addNewStatesToSubmission(eventData, newStates) {
       state: [ ...state.values]
     };
     try {
-      submission.addAnimationStep.stateChange(newState);
+      submission.addAnimationStepSuccesfully.stateChange(newState);
     } catch (error) {
       console.warn(`Could not add state change to animatio: ${error}`)
     }
@@ -96,7 +96,7 @@ function getNewStates(dataStructures, exercise) {
   });
 }
 
-function handleModelSolution(exercise, eventData) {
+function handleModelAnswer(exercise, eventData) {
   const type = String(eventData.type.match(/model.*/))
   const currentStep = eventData.currentStep;
   switch(type) {
@@ -111,9 +111,9 @@ function handleModelSolution(exercise, eventData) {
           state: exercise.modelDialog[0].innerHTML
         };
         try {
-          submission.addAnimationStep.modelSolution(newState);
+          submission.addAnimationStepSuccesfully.modelSolution(newState);
         } catch (error) {
-          console.warn(`Could not add model solution step to animation: ${error}`)
+          console.warn(`Could not add model answer step to animation: ${error}`)
         }
       }
       break;
@@ -122,7 +122,7 @@ function handleModelSolution(exercise, eventData) {
 
 function handleGradeButtonClick(eventData) {
   try {
-    submission.addAnimationStep.gradeButtonClick({
+    submission.addAnimationStepSuccesfully.gradeButtonClick({
       type: "grade",
       tstamp: eventData.tstamp,
       currentStep: eventData.currentStep,
@@ -139,7 +139,7 @@ module.exports = {
   handleArrayEvents,
   handleStateChange,
   handleGradeButtonClick,
-  handleModelSolution,
+  handleModelAnswer,
 }
 
 },{"../submission/submission":35}],2:[function(require,module,exports){
@@ -148,7 +148,7 @@ const helpers = require('../utils/helperFunctions');
 const submission = require('../submission/submission');
 
 function setExerciseOptions(eventData) {
-  submission.addDefinition.options({
+  submission.addDefinitionSuccesfully.options({
     'title': getExerciseTitle(eventData.initialHTML),
     'instructions': getExerciseInstructions(eventData.initialHTML),
   });
@@ -166,12 +166,12 @@ function setDefinitions(exercise) {
 }
 
 function setFinalGrade(eventData) {
-  return submission.addDefinition.score({ ...eventData.score });
+  return submission.addDefinitionSuccesfully.score({ ...eventData.score });
 }
 
 function setModelSolution(modelSolution) {
   try {
-    submission.addDefinition.modelSolution(modelSolution);
+    submission.addDefinitionSuccesfully.modelSolution(modelSolution);
   } catch (error) {
     throw error;
   }
@@ -272,7 +272,7 @@ function passEvent(eventData) {
       def_func.setFinalGrade(eventData) && services.sendSubmission(submission.state());
       break;
     case String(eventData.type.match(/^jsav-exercise-model-.*/)):
-      anim_func.handleModelSolution(exercise, eventData);
+      anim_func.handleModelAnswer(exercise, eventData);
       break;
     case 'jsav-recorded':
       break;
@@ -304,7 +304,7 @@ function setInitialDataStructures(exercise) {
     dataStructures.push(getSingleDataStructures(initialStructures));
   }  
   dataStructures.forEach(dataStructure => {
-    submission.addInitialState.dataStructure(dataStructure);
+    submission.addInitialStateSuccesfully.dataStructure(dataStructure);
   });
 }
 
@@ -365,7 +365,7 @@ function getInitiaStructureType(className) {
 function setNewId(eventData) {
   const initialState = submission.state().initialState;
   const dsIndex = initialState.findIndex(ds => ds.id === eventData.tempId);
-  submission.addInitialState.setDsId(dsIndex, eventData.newId);
+  submission.addInitialStateSuccesfully.setDsId(dsIndex, eventData.newId);
 }
 
 module.exports = {
@@ -2088,7 +2088,7 @@ function stateAsJSON() {
   return JSON.stringify(submission);
 }
 
-function addMetadata(metadata) {
+function addMetadataSuccesfully(metadata) {
   if(valid.metadata(metadata)) {
     submission.metadata = { ...metadata };
     return JSON.stringify(submission.metadata);
@@ -2121,7 +2121,7 @@ function addOptions(options) {
   return false;
 }
 
-function addModelSolution(modelSolution) {
+function addModelSolutionFunction(modelSolution) {
   try {
     valid.modelSolution(modelSolution)
 } catch (error) {
@@ -2166,7 +2166,7 @@ function addStateChange(data) {
   return JSON.stringify(submission.animation);
 }
 
-function addModelSolutionStep(data) {
+function addModelSolutionFunctionStep(data) {
   try {
     valid.stateChange(data);
   } catch (error) {
@@ -2195,22 +2195,22 @@ const exerciseInitialized  = () => {
   return true;
 }
 
-const addDefinition = {
+const addDefinitionSuccesfully = {
   style: addStyle,
   score: addScore,
   options: addOptions,
-  modelSolution: addModelSolution
+  modelSolution: addModelSolutionFunction
 };
 
-const addInitialState = {
+const addInitialStateSuccesfully = {
   dataStructure: addDataStructure,
   setDsId
 };
 
-const addAnimationStep = {
+const addAnimationStepSuccesfully = {
   dsClick: addDsClick,
   stateChange: addStateChange,
-  modelSolution: addModelSolutionStep,
+  modelSolution: addModelSolutionFunctionStep,
   gradeButtonClick: addGradeButtonClick,
 };
 
@@ -2219,10 +2219,10 @@ module.exports = {
   reset,
   state,
   stateAsJSON,
-  addMetadata,
-  addDefinition,
-  addInitialState,
-  addAnimationStep,
+  addMetadataSuccesfully,
+  addDefinitionSuccesfully,
+  addInitialStateSuccesfully,
+  addAnimationStepSuccesfully,
 }
 
 },{"./helpers":34,"./validate":36}],36:[function(require,module,exports){

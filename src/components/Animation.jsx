@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import "../jsav-exercise-player/styles/player.css";
-// import playButton from "../jsav-exercise-player/img/play-button.png";
-// import "../jsav-exercise-player/build/player-bundle.js"
 
 class Animation extends Component {
 
@@ -52,9 +49,9 @@ class Animation extends Component {
             <p className="jsavoutput jsavline" id="animation-html"></p>
           </div>
 
-          <div className="model-solution">
+          <div className="model-answer">
             <h3>If the model answer was opened during the exercise, the viewed steps will be shown here</h3>
-            <div id="model-solution"></div>
+            <div id="model-answer"></div>
           </div>
 
         </div>

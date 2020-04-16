@@ -9,7 +9,6 @@ import axios from "axios";
 import './css/App.css';
 import './css/JSAV.css';
 import Exercises from './components/Exercises';
-import InsertionSort from './components/exercises/InsertionSort';
 import Home from './components/Home';
 import Jaal from './components/Jaal';
 import Animation from './components/Animation';
@@ -20,7 +19,7 @@ function App() {
   const [ modal, setModal ] = useState(false);
 
   window.addEventListener("message", receiveMessage, false);
-  const mode = "prod";
+  const mode = "test";
   const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
   const testServer = "http://localhost:8000"
   const server = mode === "test"? testServer : exerciseServer;

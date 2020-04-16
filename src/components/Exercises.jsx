@@ -18,6 +18,16 @@ const Exercises = (props) => {
       max_points: 20,
       uid: "test user",
       ordinal_number: 1
+    },
+    {
+      title: "Insertion Sort without Swap",
+      server: server,
+      path: "/exercises/insertionSortWithoutSwap.html",
+      submission_url: "",
+      post_url: "window",
+      max_points: 20,
+      uid: "test user",
+      ordinal_number: 2
     }
   ]);
 
@@ -25,7 +35,7 @@ const Exercises = (props) => {
     <div>
       <div className="exercise-content">
       { exercises.map( exercise => {
-        return <iframe title={ exercise.title } src={constructUrl(exercise)}></iframe>
+        return <iframe title={ exercise.title } src={constructUrl(exercise)} key={ exercise.ordinal_number}></iframe>
       }) }
       </div>
       <Modal
