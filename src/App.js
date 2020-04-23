@@ -11,7 +11,6 @@ import './css/JSAV.css';
 import { server, post_url } from './conf.js'
 import Exercises from './components/Exercises';
 import Home from './components/Home';
-import Jaal from './components/Jaal';
 
 function App() {
   const [ animationData, setAnimationData ] = useState("No data");
