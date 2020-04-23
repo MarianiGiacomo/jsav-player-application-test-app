@@ -4,6 +4,7 @@ import Modal from "./Modal";
 const Exercises = (props) => {
   const {
     server,
+    post_url,
     animationData,
     modal,
     openModal,
@@ -11,20 +12,20 @@ const Exercises = (props) => {
   const [ exercises, setExercises ] = useState([
     {
       title: "Insertion Sort",
-      server: server,
+      server,
       path: "/exercises/insertionSort.html",
       submission_url: "",
-      post_url: "window",
+      post_url,
       max_points: 20,
       uid: "test user",
       ordinal_number: 1
     },
     {
       title: "Insertion Sort without Swap",
-      server: server,
+      server,
       path: "/exercises/insertionSortWithoutSwap.html",
       submission_url: "",
-      post_url: "window",
+      post_url,
       max_points: 20,
       uid: "test user",
       ordinal_number: 2

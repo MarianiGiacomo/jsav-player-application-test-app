@@ -8,21 +8,17 @@ import {
 import axios from "axios";
 import './css/App.css';
 import './css/JSAV.css';
+import { server, post_url } from './conf.js'
 import Exercises from './components/Exercises';
 import Home from './components/Home';
 import Jaal from './components/Jaal';
-import Animation from './components/Animation';
-
 
 function App() {
   const [ animationData, setAnimationData ] = useState("No data");
   const [ modal, setModal ] = useState(false);
 
   window.addEventListener("message", receiveMessage, false);
-  const mode = "test";
-  const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
-  const testServer = "http://localhost:8000"
-  const server = mode === "test"? testServer : exerciseServer;
+
 
   return (
     <Router>
@@ -43,6 +39,7 @@ function App() {
             <Route path="/exercises">
               <Exercises
               server={server}
+              post_url={post_url}
               animationData={animationData}
               modal={modal}
               openModal={openModal}
