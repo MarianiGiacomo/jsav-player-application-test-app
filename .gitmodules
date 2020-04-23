@@ -1,6 +1,0 @@
-[submodule "src/jsav-exercise-recorder"]
-	path = src/jsav-exercise-recorder
-	url = git@version.aalto.fi:mariang1/jsav-exercise-recorder.git
-[submodule "src/jsav-exercise-player"]
-	path = src/jsav-exercise-player
-	url = git@version.aalto.fi:mariang1/jsav-exercise-player.git
