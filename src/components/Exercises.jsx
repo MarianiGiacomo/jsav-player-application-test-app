@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from "./Modal";
+import { exercises } from "../conf.js";
 
 const Exercises = (props) => {
   const {
@@ -9,28 +10,7 @@ const Exercises = (props) => {
     modal,
     openModal,
     closeModal } = { ...props };
-  const [ exercises, setExercises ] = useState([
-    {
-      title: "Insertion Sort",
-      server,
-      path: "/exercises/insertionSort.html",
-      submission_url: "",
-      post_url,
-      max_points: 20,
-      uid: "test user",
-      ordinal_number: 1
-    },
-    {
-      title: "Insertion Sort without Swap",
-      server,
-      path: "/exercises/insertionSortWithoutSwap.html",
-      submission_url: "",
-      post_url,
-      max_points: 20,
-      uid: "test user",
-      ordinal_number: 2
-    }
-  ]);
+  const [ exercises, setExercises ] = useState(exercises);
 
   return (
     <div>
