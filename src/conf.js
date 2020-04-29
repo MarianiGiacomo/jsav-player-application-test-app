@@ -8,20 +8,20 @@ const POST_URL = 'window';
 const EXERCISES = [
   {
     title: "Insertion Sort",
-    SERVER,
+    server: SERVER,
     path: "/exercises/insertionSort.html",
     submission_url: "",
-    POST_URL,
+    post_url: POST_URL,
     max_points: 20,
     uid: "test user",
     ordinal_number: 1
   },
   {
     title: "Insertion Sort without Swap",
-    SERVER,
+    server: SERVER,
     path: "/exercises/insertionSortWithoutSwap.html",
     submission_url: "",
-    POST_URL,
+    post_url: POST_URL,
     max_points: 20,
     uid: "test user",
     ordinal_number: 2

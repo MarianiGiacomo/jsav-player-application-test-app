@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from "./Modal";
 import { exercises } from "../conf.js";
 
 const Exercises = (props) => {
   const {
-    server,
-    post_url,
     animationData,
     modal,
     openModal,
     closeModal } = { ...props };
-  const [ exercises, setExercises ] = useState(exercises);
 
   return (
     <div>
@@ -25,7 +22,6 @@ const Exercises = (props) => {
       closeModal={closeModal}/>
     </div>
   )
-
 };
 
 function constructUrl(exercise) {
@@ -42,5 +38,7 @@ function constructUrl(exercise) {
   return  `${url}?submission_url=${submission_url}
     &post_url=${post_url}&max_points=${max_points}&uid=${uid}&ordinal_number=${ordinal_number}`;
 }
+
+
 
 export default Exercises;

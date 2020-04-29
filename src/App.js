@@ -7,8 +7,7 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import './css/App.css';
-import './css/JSAV.css';
-import { server, post_url } from './conf.js'
+import { server } from './conf.js'
 import Exercises from './components/Exercises';
 import Home from './components/Home';
 
@@ -37,8 +36,6 @@ function App() {
           <Switch>
             <Route path="/exercises">
               <Exercises
-              server={server}
-              post_url={post_url}
               animationData={animationData}
               modal={modal}
               openModal={openModal}
