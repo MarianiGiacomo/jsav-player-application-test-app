@@ -31,6 +31,10 @@ function App() {
           <li>
             <Link to="/exercises">Exercises</Link>
           </li>
+          <li>
+            <a href="https://github.com/MarianiGiacomo/jsav-player-application"
+            target="_blank">Git Repository</a>
+          </li>
         </nav>
         <div className="app-content">
           <Switch>

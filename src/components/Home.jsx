@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import testApplicationImg from "../img/test-application.png";
 
 const Home = () => (
   <div>
@@ -19,6 +20,13 @@ const Home = () => (
       </li>
   </ol>
     <h4>Start by trying some <Link to="/exercises">exercise</Link></h4>
+    <div >
+      <img
+      src={ testApplicationImg }
+      alt="Test application architecture"
+      style={{ margin: "1% 5%" }}>
+      </img>
+    </div>
   </div>
 );
 

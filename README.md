@@ -71,4 +71,4 @@ const EXERCISES = [
 - The server, in our case the [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-palyer-application-test-server/tree/master), responds with an `<iframe>` as string, which is ready for loading the [Exercise Player](https://github.com/MarianiGiacomo/jsav-exercise-player/tree/master).
 - The test application inserts the received `<iframe>` into a modal window and the [Exercise Player](https://github.com/MarianiGiacomo/jsav-exercise-player/tree/master) loads.
 
-![](./test-application.png)
+![](./src/img/test-application.png)
