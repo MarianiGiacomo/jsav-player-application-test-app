@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from "./Modal";
+import Exercise from './Exercise';
 import { exercises } from "../conf.js";
 
 const Exercises = (props) => {
@@ -13,7 +14,9 @@ const Exercises = (props) => {
     <div>
       <div className="exercise-content">
       { exercises.map( exercise => {
-        return <iframe title={ exercise.title } src={constructUrl(exercise)} key={ exercise.ordinal_number}></iframe>
+        return <div key={exercise.ordinal_number}>
+            <Exercise title={exercise.title} url={constructUrl(exercise)} ordinal_number={exercise.ordinal_number} />
+          </div>
       }) }
       </div>
       <Modal
