@@ -38,8 +38,7 @@ function constructUrl(exercise) {
     ordinal_number
   } = { ...exercise };
   let url = server + path;
-  return  `${url}?submission_url=${submission_url}
-    &post_url=${post_url}&max_points=${max_points}&uid=${uid}&ordinal_number=${ordinal_number}`;
+  return  `${url}?submission_url=${submission_url}&post_url=${post_url}&max_points=${max_points}&uid=${uid}&ordinal_number=${ordinal_number}`;
 }
 
 
