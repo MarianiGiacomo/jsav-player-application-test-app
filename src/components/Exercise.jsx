@@ -1,12 +1,7 @@
 import React from 'react';
 
 const Exercise = ({ title, url, ordinal_number}) => {
-  console.log(url);
-  const iframe =
-`    <iframe
-      src=${url}
-      id=${title}-${ordinal_number}>
-    </iframe>`;
+  const iframe =`<iframe src=${url} id=${title}-${ordinal_number}></iframe>`;
   let display = false;
 
   return (

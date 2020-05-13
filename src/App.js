@@ -56,19 +56,26 @@ function App() {
   );
 
   function receiveMessage(event) {
-    if (event.origin !== server)
-      return;
-    try {
-      console.log(event.data)
-      axios.post(server, event.data)
-      .then(response => {
-        let data = response.data;
-        setAnimationData(data);
-        openModal(data);
-      })
-    } catch (err) {
-      console.warn(err);
+    console.log('RECEIVED MESSAGE FROM IFRAME');
+    if (event.origin === server && sentByExerciseRecorder(event.data)) {
+      try {
+        console.log(event.data)
+        axios.post(server, event.data)
+        .then(response => {
+          let data = response.data;
+          setAnimationData(data);
+          openModal(data);
+        })
+      } catch (err) {
+        console.warn(err);
+      }
     }
+    console.log(event.data)
+    return;
+  }
+
+  function sentByExerciseRecorder(data) {
+    return data.metadata && data.definitions && data.initialState && data.animation;
   }
 
   function openModal(content) {

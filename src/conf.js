@@ -13,8 +13,8 @@ const EXERCISES = [
     submission_url: "",
     post_url: POST_URL,
     max_points: 20,
-    uid: "test user",
-    ordinal_number: 1
+    uid: "testuser",
+    ordinal_number: 1,
   },
   {
     title: "Insertion Sort without Swap",
@@ -23,8 +23,18 @@ const EXERCISES = [
     submission_url: "",
     post_url: POST_URL,
     max_points: 20,
-    uid: "test user",
-    ordinal_number: 2
+    uid: "testuser",
+    ordinal_number: 2,
+  },
+  {
+    title: "Heap Build",
+    server: SERVER,
+    path: "/exercises/heapbuildPRO.html",
+    submission_url: "",
+    post_url: POST_URL,
+    max_points: 20,
+    uid: "testuser",
+    ordinal_number: 3,
   }
 ]
 
