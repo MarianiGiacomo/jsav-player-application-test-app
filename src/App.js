@@ -56,10 +56,8 @@ function App() {
   );
 
   function receiveMessage(event) {
-    console.log('RECEIVED MESSAGE FROM IFRAME');
     if (event.origin === server && sentByExerciseRecorder(event.data)) {
       try {
-        console.log(event.data)
         axios.post(server, event.data)
         .then(response => {
           let data = response.data;
@@ -70,7 +68,6 @@ function App() {
         console.warn(err);
       }
     }
-    console.log(event.data)
     return;
   }
 
