@@ -35,6 +35,16 @@ const EXERCISES = [
     max_points: 20,
     uid: "testuser",
     ordinal_number: 3,
+  },
+  {
+    title: "Dijkstra's algorithm",
+    server: SERVER,
+    path: "/exercises/DijkstraPE.html",
+    submission_url: "",
+    post_url: POST_URL,
+    max_points: 20,
+    uid: "testuser",
+    ordinal_number: 34
   }
 ]
 
