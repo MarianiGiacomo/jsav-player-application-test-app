@@ -45,6 +45,16 @@ const EXERCISES = [
     max_points: 20,
     uid: "testuser",
     ordinal_number: 34
+  },
+  {
+    title: "Evaluating Postfix Expression",
+    server: SERVER,
+    path: "/exercises/postfixEvaluationPRO.html",
+    submission_url: "",
+    post_url: POST_URL,
+    max_points: 20,
+    uid: "testuser",
+    ordinal_number: 35
   }
 ]
 
