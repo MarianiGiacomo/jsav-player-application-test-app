@@ -55,6 +55,16 @@ const EXERCISES = [
     max_points: 20,
     uid: "testuser",
     ordinal_number: 35
+  },
+  {
+    title: "Binary Search Tree - Search",
+    server: SERVER,
+    path: "/exercises/BSTinsertPRO-ODSA.html",
+    submission_url: "",
+    post_url: POST_URL,
+    max_points: 20,
+    uid: "testuser",
+    ordinal_number: 36
   }
 ]
 
