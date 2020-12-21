@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState }  from 'react';
 
 const Exercise = ({ title, url, ordinal_number}) => {
   const iframe =`<iframe src=${url} id=${title}-${ordinal_number}></iframe>`;
-  let display = false;
+  const [ display, setDisplay ] = useState(false);
 
   return (
   <div>
@@ -17,13 +17,13 @@ const Exercise = ({ title, url, ordinal_number}) => {
   </div>
 )
 
-function showHide(current) {
-  display = !current;
-  console.log();
-  if(display) {
+function showHide(display) {
+  if(!display) {
     document.getElementById(`${title}-${ordinal_number}`).innerHTML = iframe;
+    setDisplay(true);
   } else {
     document.getElementById(`${title}-${ordinal_number}`).innerHTML = '';
+    setDisplay(false);
   }
 }
 
