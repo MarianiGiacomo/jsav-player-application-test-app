@@ -1,6 +1,6 @@
 # JSAV-Player-testing-app
 
-This a simple React app, the front-end of the test application for the [JSAV Player Application](https://github.com/MarianiGiacomo/jsav-player-application). You can see it deployed [here](), using our [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-palyer-application-test-server/tree/master) as back-end. Beware that they are both in continuous development, so the deployed version might be different from what you find in the repos, might not be working properly etc...
+This a simple React app, the front-end of the test application for the [JSAV Player Application](https://github.com/MarianiGiacomo/jsav-player-application). You can see it deployed [here](https://jsav-player-test-app.web.app/), using our [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-palyer-application-test-server/tree/master) as back-end. Beware that they are both in continuous development, so the deployed version might be different from what you find in the repos, might not be working properly etc...
 
 If you want to run it up on your own, there are few settings to be done before using the app:
 - Setting for the back-end
