@@ -1,4 +1,4 @@
-const mode = "test";
+const mode = "production";
 const exerciseServer = "https://gentle-fjord-22671.herokuapp.com";
 const testServer = "http://localhost:8000";
 
