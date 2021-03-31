@@ -13,7 +13,7 @@ const Exercises = (props) => {
   return (
     <div>
       <h1>Exercises</h1>
-      <strong style={{color: "red"}}>If the exercises don't work, check that you have allowed thrid pary cookies for this web site.</strong>
+      <strong style={{color: "red"}}>If the exercises don't work, check that you have allowed thrid party cookies for this web site.</strong>
       <div className="exercise-content">
       { exercises.map( exercise => {
         return <div key={exercise.ordinal_number}>
