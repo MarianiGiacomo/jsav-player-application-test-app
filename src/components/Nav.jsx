@@ -16,7 +16,7 @@ export const Nav = () => {
 				</li>
 				<li>
 					<a href="https://github.com/MarianiGiacomo/jsav-player-application"
-					target="_blank">Git Repository</a>
+					target="_blank" rel="noopener noreferrer">Git Repository</a>
 				</li>
 			</ul>
 		</nav>

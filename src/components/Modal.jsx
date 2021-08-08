@@ -5,7 +5,7 @@ const Modal = ({ modalData }) => {
 
 	useEffect(() => {
 		setFocus(3);
-	}, [])
+	},)
 
 	return ( 
 		visible

@@ -8,7 +8,7 @@ export const JsonViewer = ({ data }) => {
 		if(Object.keys(data).length) { 
 			setClickListeners() 
 		}
-	}, [])
+	}, [data])
 
 	const animationData = Object.keys(data).length 
 		? { animation: data.animation, definitions: data.definitions, initialState: data.initialState, metadata: data.metadata }
