@@ -18,7 +18,7 @@ const Exercise = ({ match }) => {
 
   return (
 		<div>
-			<strong>&#10071;If the exercise does not load properly, check that you have allowed thrid party cookies for this web site.</strong>
+			<strong><span role="img" aria-label="exlamation-mark">&#10071;</span>If the exercise does not load properly, check that you have allowed thrid party cookies for this web site.</strong>
 			<div className="exercise-content">
 				{
 					!Object.keys.length

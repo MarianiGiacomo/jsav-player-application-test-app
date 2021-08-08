@@ -29,30 +29,38 @@ function App() {
     <Router>
       <div className="App">
 				<Nav/>
-        <header className="App-header">
-          JSAV Player Test Application
-        </header>
-        <div className="app-content">
-          <Switch>
-						<Route path="/exercises/:number" render={({ match }) => <Exercise match={ match }/>}/>
-            <Route path="/exercises">
-              <Exercises modalData={modalData} />
-            </Route>
-            <Route path="/jaal">
-							<JsonViewer data={animationData} />
-						</Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
+				<main>
+					<header className="App-header">
+						JSAV Player Test Application
+					</header>
+					<div className="app-content">
+						<Switch>
+							<Route path="/exercises/:number" render={({ match }) => <Exercise match={ match }/>}/>
+							<Route path="/exercises">
+								<Exercises modalData={modalData} />
+							</Route>
+							<Route path="/jaal">
+								<JsonViewer data={animationData} />
+							</Route>
+							<Route path="/">
+								<Home />
+							</Route>
+						</Switch>
+					</div>
+				</main>
       </div>
     </Router>
   );
 
   function receiveMessage(event) {
     if (event.origin === server && sentByExerciseRecorder(event.data)) {
+			// Used by the JAAL Visualizer
 			setAnimationData(event.data);
+			if(!document.querySelector('.loader')) {
+				const loader = document.createElement('div')
+				loader.className = 'loader'
+				document.querySelector('.exercise-content').prepend(loader)
+			}
       try {
         axios.post(server, event.data)
         .then(response => {
@@ -71,8 +79,10 @@ function App() {
   }
 
   function loadExercisePlayer(content) {
+		const loader = document.querySelector('.loader')
 		const exerciseIframe = document.querySelector('iframe.exercise');
     const jsavPlayer = document.getElementById('player-container');
+		if(loader) loader.remove() 
 		if(exerciseIframe) exerciseIframe.remove();
 		if(jsavPlayer && !jsavPlayer.innerHTML) jsavPlayer.innerHTML = content;
   }

@@ -23,6 +23,7 @@ const Modal = ({ modalData }) => {
 		function setFocus(retry) {
 			const button = document.querySelector('.close button')
 			const modal = document.querySelector('.modal')
+			const overlay = document.querySelector('.overlay')
 			if(button && modal) {
 				button.focus()
 				modal.addEventListener('keydown', (e) => {
@@ -30,6 +31,9 @@ const Modal = ({ modalData }) => {
 						e.preventDefault()
 						button.focus()
 					}
+				})
+				overlay.addEventListener('click', (e) => {
+					if(e.target.className === 'overlay') close();
 				})
 			}
 			else if(retry > 0) {

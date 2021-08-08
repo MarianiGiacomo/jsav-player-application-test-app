@@ -1,3 +1,7 @@
+html {
+	background-color: #e7fbfbda;
+}
+
 .App-header {
   text-align: center;
   padding: 5px;
@@ -8,13 +12,20 @@ nav li {
   display: inline;
   margin: 5px 10px;
 }
+
 nav {
-  margin: 5px 0px;
   border-bottom: 1px solid black;
-  padding-bottom: 5px;
+  padding: 0.3rem;
+	background-color: white;
 }
-.app-content {
-  padding: 5px;
+
+main {
+	padding: 2rem 2rem 0 2rem;
+}
+
+p {
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
 
 /* Modal */
@@ -24,12 +35,13 @@ nav {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(170, 170, 170, 0.329);
+	transform: translate(-2rem, -2rem);
 }
 .modal {
  position: relative;
  top: 5%;
  width: fit-content;
- margin: 2rem;
+ margin: 5rem auto;
  background-color: rgb(256,256,256);
  border: solid black 2px;
 }

@@ -1,12 +1,11 @@
 import React, { useEffect } from "react"
+import { Link } from "react-router-dom";
 import { jsonToHTML, setClickListeners } from '../json-viewer'
 
 export const JsonViewer = ({ data }) => {
 
 	useEffect(() => {
 		if(Object.keys(data).length) { 
-			// const jsonHTML = jsonToHTML(data)
-			// document.getElementById('json-viewer').innerHTML = jsonHTML
 			setClickListeners() 
 		}
 	}, [])
@@ -15,10 +14,19 @@ export const JsonViewer = ({ data }) => {
 		? { animation: data.animation, definitions: data.definitions, initialState: data.initialState, metadata: data.metadata }
 		: { }
 
-	return Object.keys(data).length
-		? (
-			<div id="json-viewer" dangerouslySetInnerHTML={{__html: jsonToHTML(animationData)(true)(false)}}>
-			</div>
-		)
-		: <p>No data</p> 
+	return (
+		<>
+			<h1>JAAL Visualizer</h1>
+			{ 
+				Object.keys(data).length
+					? (
+						<>
+						<h2>JAAL file content</h2>
+						<div dangerouslySetInnerHTML={{__html: jsonToHTML(animationData)(true)(false)}}></div>
+						</>
+					)
+					: <p>No data yet, first you must complete an <Link to="/exercises">exercise</Link></p> 
+			}
+		</>
+	)
 }
