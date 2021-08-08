@@ -22,7 +22,7 @@ function App() {
 	const modalData = { 
 		visible: modalVisible, 
 		close: () => setModalVisible(false), 
-		content: 'Whe you try the exercises, if the content does not load make sure the browser accepts third party cookies for this web site'
+		content: 'When you try the exercises, if the content does not load make sure the browser accepts third party cookies for this web site'
 	}
 
   return (
