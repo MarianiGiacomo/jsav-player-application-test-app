@@ -1,48 +1,21 @@
 import React from 'react';
-import Modal from "./Modal";
-import Exercise from './Exercise';
+import { Link } from 'react-router-dom'
 import { exercises } from "../conf.js";
+import Modal from './Modal'
 
-const Exercises = (props) => {
-  const {
-    animationData,
-    modal,
-    openModal,
-    closeModal } = { ...props };
+const Exercises = ({ modalData }) => {
 
   return (
-    <div>
+    <>
       <h1>Exercises</h1>
-      <strong style={{color: "red"}}>If the exercises don't work, check that you have allowed thrid party cookies for this web site.</strong>
-      <div className="exercise-content">
-      { exercises.map( exercise => {
-        return <div key={exercise.ordinal_number}>
-            <Exercise title={exercise.title} url={constructUrl(exercise)} ordinal_number={exercise.ordinal_number} />
-          </div>
-      }) }
-      </div>
-      <Modal
-      visible={modal}
-      openModal={openModal}
-      closeModal={closeModal}/>
-    </div>
+			{ 
+				exercises.map(e => {
+					return <div key={e.ordinal_number}><Link to={`/exercises/${e.ordinal_number}`}>{e.title}</Link></div>
+				})
+			}
+		<Modal modalData={modalData}/>
+    </>
   )
 };
-
-function constructUrl(exercise) {
-  let {
-    server,
-    path,
-    submission_url,
-    post_url,
-    max_points,
-    uid,
-    ordinal_number
-  } = { ...exercise };
-  let url = server + path;
-  return  `${url}?submission_url=${submission_url}&post_url=${post_url}&max_points=${max_points}&uid=${uid}&ordinal_number=${ordinal_number}`;
-}
-
-
 
 export default Exercises;
