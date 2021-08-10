@@ -1,6 +1,6 @@
 # JSAV-Player-testing-app
 
-This a simple React app, the front-end of the test application for the [JSAV Player Application](https://github.com/MarianiGiacomo/jsav-player-application). You can see it deployed [here](https://jsav-player-test-app.web.app/), using our [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-palyer-application-test-server/tree/master) as back-end. Beware that they are both in continuous development, so the deployed version might be different from what you find in the repos, might not be working properly etc...
+This a simple React app, the front-end of the test application for the [JSAV Player Application](https://github.com/MarianiGiacomo/jsav-player-application). You can see it deployed [here](https://jsav-player-test-app.web.app/), using our [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-player-application-test-server) as back-end. Beware that they are both in continuous development, so the deployed version might be different from what you find in the repos, might not be working properly etc...
 
 If you want to run it up on your own, there are few settings to be done before using the app:
 - Setting for the back-end
@@ -8,7 +8,7 @@ If you want to run it up on your own, there are few settings to be done before u
 
 
 ## Settings for the Back-End
-You will need a back-end for serving the exercises, the [Exercise Recorder](https://github.com/MarianiGiacomo/jsav-exercise-recorder/tree/master), and the [Exercise Player](https://github.com/MarianiGiacomo/jsav-exercise-player/tree/master). As server you can set up your own [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-palyer-application-test-server/tree/master), or any other server of your choice. You can also use our own test server at https://gentle-fjord-22671.herokuapp.com.
+You will need a back-end for serving the exercises, the [Exercise Recorder](https://github.com/MarianiGiacomo/jsav-exercise-recorder/tree/master), and the [Exercise Player](https://github.com/MarianiGiacomo/jsav-exercise-player/tree/master). As server you can set up your own [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-player-application-test-server), or any other server of your choice. You can also use our own test server at https://gentle-fjord-22671.herokuapp.com.
 
 If you set up your own [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-palyer-application-test-server/tree/master), then you will also need a MongoDB database, which you will have to set up on your own, and configure its connection in the [jsav-player-application-test-server](https://github.com/MarianiGiacomo/jsav-palyer-application-test-server/tree/master).
 
